@@ -52,7 +52,7 @@ const Detail = () => {
   // NOTE - 힌트:
   // - todo가 없을 경우 로딩 중을 표시하는 JSX를 반환합니다.
 
-  return todo === null ?(
+  return todo === null ?  <div><Loading/></div> : (    
     <section>
       <TodoItem
         todo={todo}
@@ -60,7 +60,7 @@ const Detail = () => {
         onToggleTodoItem={handleToggleTodoItem}
       />
     </section>
-  ): <div><Loading/></div>;
+  );
 };
 
 export default Detail;
