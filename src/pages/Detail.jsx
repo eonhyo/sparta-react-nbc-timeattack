@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import TodoItem from "../components/todo/TodoItem";
 import { useDispatch } from "react-redux";
 import { deleteTodoThunk, toggleTodoThunk } from "../features/todo/todoSlice";
-import Loading from "./loading";
 import { getSingleTodo } from "../api/todo-api";
 
 
@@ -52,7 +51,10 @@ const Detail = () => {
   // NOTE - 힌트:
   // - todo가 없을 경우 로딩 중을 표시하는 JSX를 반환합니다.
 
-  return todo === null ?  <div><Loading/></div> : (    
+  if(!todo) { 
+    return <div>로딩중</div>
+  }
+  return (    
     <section>
       <TodoItem
         todo={todo}
