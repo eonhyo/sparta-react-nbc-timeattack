@@ -58,7 +58,7 @@ export const deleteTodo = async (id) => {
 
 // 특정 ID의 TODO 수정하기 (PATCH /todos/:id)
 export const updateTodo = async (id, todo) => {
-  const { data } = await todoClient.patch(`/todos/${id}, todo`);
+  const { data } = await todoClient.patch(`/todos/${id}`, todo);
   return data;
   // TODO - axios를 사용하여 PATCH /:id 요청을 보내고 수정된 ID를 반환하는 코드를 작성하세요.
   // NOTE - 힌트:
