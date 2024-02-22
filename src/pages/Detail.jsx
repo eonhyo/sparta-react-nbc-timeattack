@@ -4,6 +4,7 @@ import TodoItem from "../components/todo/TodoItem";
 import { useDispatch } from "react-redux";
 import { deleteTodoThunk, toggleTodoThunk } from "../features/todo/todoSlice";
 import Loading from "./loading";
+import { getSingleTodo } from "../api/todo-api";
 
 
 // 서버 : http://localhost:5000/todos 
@@ -19,10 +20,9 @@ const Detail = () => {
   // - useEffect 훅을 사용해 todoId가 변경될 때마다 todo를 가져옵니다.
 
   const fetchTodo = async()=>{
-    const response = await fetch(`http://localhost:5000/todos/` )
-    const data = await response.json();
-   
-    setTodo(data)
+    const todos = await getSingleTodo(todoId);
+
+    setTodo(todos)
   }
   useEffect(()=>{
     fetchTodo();

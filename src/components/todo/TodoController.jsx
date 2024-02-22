@@ -7,7 +7,7 @@ import TodoList from "./TodoList";
 const TodoController = () => {
   const [sortOrder, setSortOrder] = useState("asc");
   const dispatch = useDispatch();
-  const todos = useSelector(state => state.todos)
+  const {todos} = useSelector(state => state.todo)
   // TODO: Redux Toolkit의 전역 상태에서 todos 상태를 가져옵니다.
   // NOTE - 힌트:
   // - useSelector 훅을 사용해 todoSlice에서 정의한 todos를 가져옵니다.
